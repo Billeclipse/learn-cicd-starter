@@ -38,8 +38,7 @@ func TestGetAPIKey(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			var value string = tt.headers.Get("Authorization")
-			got, err := GetAPIKey(value)
+			got, err := GetAPIKey(tt.headers)
 
 			if tt.wantErr {
 				if err == nil {
